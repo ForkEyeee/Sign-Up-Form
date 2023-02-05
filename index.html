@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
     <link href="https://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
     <title>Sign-up Form</title>
 </head>
 <body>
     <div class="main-container">
-        <div class="image"><img src="leaves.jpg" alt=""></div>
+        <div class="image">
+            <div class="odin">Odin</div>
+          
+          
+            <img src="leaves.jpg" alt="">
+        </div>
        <div class="main-container2"> <div class="page-text">This is not a real online service! You know you need something <br> like this in your life to
              help you realize your deepest dreams. <br>
             <p>Sign up <em>now</em> to get started.</p> 
@@ -30,7 +34,7 @@
                                   </div>
                                   <div class="widget-container">
                                       <label for="mail">Email</label>
-                                      <input type="email" id="mail" name="lname" required>
+                                      <input type="email" id="mail" name="lname" placeholder="person@gmail.com"required>
                                   </div>
                                   <div class="widget-container">
                                       <label for="pwd">Password</label>
@@ -45,7 +49,8 @@
                                   <div class="widget-container">
                                       <label for="telphone">Phone Number</label>
                                       <input type="tel" id="telphone" name="phone"
-                            
+                                       pattern="^\d{10}$" maxlength="10" placeholder="999-999-9999"
+                                       title="999-999-9999" 
                                       required>
                                   </div>
                                   <div class="widget-container">
@@ -55,11 +60,25 @@
                               </div>
                           </div>
                   </fieldset>
-                  <input type="submit" value="Create Account" class="button">
+                  <input type="submit" value="Create Account" id="button">
                   <p>Already have an account? <span class="link">Log in</span></p>
               </form> 
           </div> 
         </div>
 </div>
 </body>
+<script>
+let password = document.getElementById("pwd")
+let confirmpassword = document.getElementById("cpwd")
+
+function validatePassword() {
+    if(password.value != confirmpassword.value) {
+        confirmpassword.setCustomValidity("Passwords Don't Match");
+    } else {confirmpassword.setCustomValidity('')}
+}
+
+password.onchange = validatePassword;
+confirmpassword.onkeyup = validatePassword;
+
+</script>
 </html>
